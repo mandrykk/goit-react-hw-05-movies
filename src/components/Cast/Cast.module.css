@@ -1,0 +1,9 @@
+.castList {
+  list-style: none;
+  column-count: 2;
+  padding: 0 100px;
+}
+
+.castTitle {
+  margin: 0;
+}

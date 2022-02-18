@@ -1,0 +1,140 @@
+.homeTitle {
+  text-align: center;
+}
+
+.homePageList {
+  list-style: none;
+  text-decoration: none;
+  margin-left: 60px;
+}
+
+.listItem {
+  padding: 5px 0;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(73, 71, 71);
+  font-size: 17px;
+}
+
+.link:hover {
+  color: rgb(159, 235, 88);
+}
+
+/* ==============MovieDetailsPage============== */
+
+.infoli {
+  text-decoration: none;
+  color: rgb(73, 71, 71);
+  margin-left: 100px;
+}
+
+.infoli:hover {
+  color: rgb(159, 235, 88);
+}
+
+.movieTitle {
+  text-align: center;
+}
+
+.movieWrap {
+  display: flex;
+}
+
+.movieWrapImg {
+  margin: 0 30px 10px 100px;
+  width: 350px;
+}
+
+.score {
+  font-size: 18px;
+}
+
+.movieList {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.movieItem {
+  padding-right: 10px;
+}
+
+.movietext {
+  font-weight: bold;
+  font-size: 120%;
+  margin-left: 100px;
+}
+
+.infolink {
+  text-decoration: none;
+  color: rgb(73, 71, 71);
+}
+
+.infolink:hover {
+  color: rgb(159, 235, 88);
+}
+
+.infolist {
+  list-style: none;
+  padding: 0;
+  margin: 3px 0 3px 100px;
+}
+
+.infoitem {
+  margin: 10px 0;
+}
+
+/* ==============MoviesPage============== */
+
+.form {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.input {
+  padding: 5px;
+  width: 25%;
+}
+
+.button {
+  margin-left: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  background-color: rgb(159, 235, 88);
+  border: none;
+  border-radius: 30px;
+}
+
+.button:hover {
+  color: white;
+  background-color: black;
+}
+
+.moviePageList {
+  list-style: none;
+  text-decoration: none;
+  margin-left: 60px;
+}
+
+.movieLink {
+  text-decoration: none;
+  color: rgb(73, 71, 71);
+  font-size: 17px;
+}
+
+.movielistItem {
+  padding: 5px 0;
+}
+
+.movieLink:hover {
+  color: rgb(159, 235, 88);
+}
+
+/* ===============NotFoundPage============== */
+.error {
+  text-align: center;
+  font-size: 300%;
+}
