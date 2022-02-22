@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import * as movieApi from '../services/movieApi';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,38 +7,41 @@ import s from './pages.module.css';
 
 export default function MoviesPage() {
   const [serchMovies, setSearchMovies] = useState([]);
-  const [movies, setMovies] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const location = useLocation();
+  const navigation = useNavigate();
+  const queryName = new URLSearchParams(location.search).get('query') ?? '';
 
-  const onFormSubmit = movies => {
-    setMovies(movies);
+  const onFormSubmit = queryName => {
+    navigation({ ...location, search: `query=${queryName}` });
   };
 
-  const onSearchChanges = e => {
-    setSearchValue(e.currentTarget.value.toLowerCase());
+  const onSearchChange = event => {
+    setSearchValue(event.currentTarget.value.toLowerCase());
   };
 
-  const onSubmit = e => {
-    e.preventDefault();
+  const onSubmit = event => {
+    event.preventDefault();
 
-    if (searchValue === "") {
-      return toast.warning("Please, enter a request");
-    }
+    setSearchValue(searchValue.trim());
 
-    onFormSubmit(searchValue);
-    setSearchValue("");
-  };
-
-  useEffect(() => {
-    if (movies === "") {
+    if (searchValue === '') {
       return toast.error("Please, enter a request");
     }
 
-    movieApi.fetchMovieByKeyWord(movies).then(data => {
-      setSearchMovies(serchMovies => [...serchMovies, ...data.results]);
+    onFormSubmit(searchValue);
+    setSearchValue('');
+  };
+
+  useEffect(() => {
+    if (queryName === '') {
+      return toast.error("Please, enter a request");
+    }
+
+    movieApi.fetchMovieByKeyWord(queryName).then(data => {
+      setSearchMovies(data.results);
     });
-  }, [movies]);
+  }, [queryName]);
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function MoviesPage() {
             autoFocus
             placeholder="Search movie"
             value={searchValue}
-            onChange={onSearchChanges}
+            onChange={onSearchChange}
           />
           <button type="submit" className={s.button}>
             Search
